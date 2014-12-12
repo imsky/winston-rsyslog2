@@ -27,6 +27,7 @@ The rsyslog transport takes the following options:
 * __hostname:__ The hostname the application is running at (default is the current hostname)
 * __tag:__ A tag to name the application for easy log filtering (default is 'winston')
 * __timeout:__ Socket timeout for TCP (default is 2000 ms)
+* __levelMapping:__ Mapping of level names to rsyslog security levels (defaults to `winston.config.syslog.levelMapping`)
 * __dateProvider:__ A parameterless function that returns a date string (default is `new Date().toISOString()`)
 * __messageProvider:__ A function that returns the message string, takes three parameters: `level`, `msg` and `meta` (`msg` is already formatted by winston)
 
