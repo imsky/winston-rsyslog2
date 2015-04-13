@@ -21,10 +21,10 @@
   "dependencies": {
   },
   "peerDependencies": {
-    "winston": "~0.7.2"
+    "winston": ">=0.7.2"
   },
   "devDependencies": {
-    "winston": "0.7.x",
+    "winston": ">=0.7.2",
     "vows": "0.7.x"
   },
   "main": "./lib/winston-rsyslog",
