@@ -10,7 +10,7 @@ An [Rsyslog][0] transport for [winston][1].
   // Requiring `winston-rsyslog` will expose 
   // `winston.transports.Rsyslog`
   //
-  require('winston-rsyslog');
+  require('winston-rsyslog2');
   
   winston.add(winston.transports.Rsyslog, options);
 ```
