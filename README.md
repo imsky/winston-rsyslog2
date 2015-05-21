@@ -15,6 +15,8 @@ An [Rsyslog][0] transport for [winston][1].
   winston.add(winston.transports.Rsyslog, options);
 ```
 
+*This is a fork of `winston-rsyslog` version 0.0.2. See [the CHANGELOG](./CHANGELOG.md) for differences.*
+
 The Rsyslog transport takes the following options:
 
 * __level:__ Level of messages that this transport should log.
