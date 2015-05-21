@@ -1,7 +1,7 @@
 {
   "name": "winston-rsyslog2",
   "version": "0.0.2",
-  "description": "An rSysLog transport for winston",
+  "description": "An rsyslog transport for winston",
   "author": "Fabio Grande <grnfba@gmail.com>",
   "license": "MIT",
   "contributors": [
