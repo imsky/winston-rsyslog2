@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/fgrande/winston-rsyslog.git"
+    "url": "http://github.com/imsky/winston-rsyslog.git"
   },
   "keywords": ["logging", "sysadmin", "tools"],
   "dependencies": {
