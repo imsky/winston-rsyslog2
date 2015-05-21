@@ -7,32 +7,22 @@
  */
 
 var path = require('path'),
-    vows = require('vows'),
-    assert = require('assert'),
-    winston = require('winston'),
-    helpers = require('winston/test/helpers'),
-    Rsyslog = require('../lib/winston-rsyslog').Rsyslog;
+  vows = require('vows'),
+  assert = require('assert'),
+  winston = require('winston'),
+  helpers = require('winston/test/helpers'),
+  Rsyslog = require('../lib/winston-rsyslog').Rsyslog;
 
 var tokenTransport,
-    config;
+  config;
 
 try {
   config = require('./config');
-  
   console.log('Using configuration file test/config.json.');
-  
-  tokenTransport = new (Rsyslog)({
-    host: config.transports.rsyslog.host,
-    port: config.transports.rsyslog.port,
-    facility: config.transports.rsyslog.facility,
-    protocol: config.transports.rsyslog.protocol,
-    hostname: config.transports.rsyslog.localhost,
-    tag: config.transports.rsyslog.tag
-  });
-}
-catch (ex) {
+  tokenTransport = new Rsyslog(config.transports.rsyslog);
+} catch (e) {
   console.log('Cannot read file test/config.json. Using defaults.');
-  tokenTransport = new (Rsyslog)();
+  tokenTransport = new Rsyslog();
 }
 
 function assertRsyslog(transport) {

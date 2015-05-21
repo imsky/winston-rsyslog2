@@ -5,27 +5,30 @@ An [Rsyslog][0] transport for [winston][1].
 ## Usage
 ``` js
   var winston = require('winston');
-  
+
   //
   // Requiring `winston-rsyslog` will expose 
   // `winston.transports.Rsyslog`
   //
   require('winston-rsyslog2');
-  
+
   winston.add(winston.transports.Rsyslog, options);
 ```
 
 *This is a fork of `winston-rsyslog` version 0.0.2. See [the CHANGELOG](./CHANGELOG.md) for differences.*
 
-The Rsyslog transport takes the following options:
+The rsyslog transport takes the following options:
 
-* __level:__ Level of messages that this transport should log.
+* __level:__ Level of messages that this transport should log
 * __host:__ Host where rsyslog runs (default : localhost)
-* __port:__ RSysLog Port (default : 514)
-* __facility:__ Facility index (default 0, valid values are from 0 to 23)
+* __port:__ rsyslog Port (default : 514)
+* __facility:__ Facility index (default is 0, valid values are from 0 to 23)
 * __protocol:__ TCP or UDP (values can be "U" or "T", default is "U")
 * __hostname:__ The hostname the application is running at (default is the current hostname)
 * __tag:__ A tag to name the application for easy log filtering (default is 'winston')
+* __timeout:__ Socket timeout for TCP (default is 2000 ms)
+* __dateProvider:__ A parameterless function that returns a date string (default is `new Date().toISOString()`)
+* __messageProvider:__ A function that returns the message string, takes three parameters: `level`, `msg` and `meta` (`msg` is already formatted by winston)
 
 Through __facility__ parameter, You'll be able to use the right log file on rsyslog:
 
@@ -57,16 +60,17 @@ Through __facility__ parameter, You'll be able to use the right log file on rsys
 ```
 
 ## Enabling rsyslog
-To let rsyslog receive data through UDP port, You should change its configuration (tipically located in /etc/rsyslog.conf), enabling the following tags:
+To let rsyslog receive data through UDP port, you should change its configuration (typically located in /etc/rsyslog.conf),
+enabling the following tags:
 
 ``` bash
 $ModLoad imudp
 $UDPServerRun 514
 ```
 
-The first tag enable UDP reception, while the second one define the listening port.
+The first tag enables UDP reception, while the second one defines the listening port.
 
-To enable TCP reception on port 10514 (as an example) :
+To enable TCP reception on port 10514 (as an example):
 
 ``` bash
 $ModLoad imtcp
@@ -94,28 +98,14 @@ This (simple) project is based on [winston-loggly][2] (thanks @indexzero for the
 
 ## Run Tests
 All of the winston tests are written in [vows][3], and cover all of the use cases described above. 
-To configure the destination rsyslog daemon parameters, copy the test/config.example.json file into test/config.json and modify it to suite Your needs.
+To configure the destination rsyslog daemon parameters, copy the test/config.example.json file into test/config.json 
+and modify it to suite your needs.
 If no test/config.json file is found, defaults will be used.
-
-``` js
-  {
-    "transports": {
-      "rsyslog": {
-        "host": "localhost",
-        "port": "514",
-        "facility": "0",
-        "protocol": "U",
-        "hostname": "localhost",
-        "tag": "MyApp"
-      }
-    } 
-  }
-```
 
 Then you can run tests with [npm][4]:
 
-```
-  npm test
+``` bash
+  $ npm test
 ```
 
 #### Author: [Fabio Grande] (http://about.me/fgrande)
