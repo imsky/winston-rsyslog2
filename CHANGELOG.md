@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
  - `timeout` option for TCP timeout. Default value is 2000 ms, which was the prior hardcoded behavior. (Aleksey verkholantsev)
  - `dateProvider` option to generate a different date string. Default behavior is backwards compatible.  (Aleksey verkholantsev)
  - `messageProvider` option to customize the message string forfmatting. (Aleksey verkholantsev)
+ - `levelMapping` option to map winston logging levels to rsyslog
 
 ## [0.0.2] - 2015-05-20
 
