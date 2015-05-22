@@ -1,7 +1,7 @@
 /*
  * winston-rsyslog-test.js: Tests for instances of the Rsyslog transport
  *
- * (C) 2013 Fabio Grande
+ * (C) 2013-2015 Fabio Grande
  * MIT LICENSE
  *
  */
@@ -13,8 +13,7 @@ var path = require('path'),
   helpers = require('winston/test/helpers'),
   Rsyslog = require('../lib/winston-rsyslog').Rsyslog;
 
-var tokenTransport,
-  config;
+var tokenTransport, config;
 
 try {
   config = require('./config');
@@ -25,19 +24,14 @@ try {
   tokenTransport = new Rsyslog();
 }
 
-function assertRsyslog(transport) {
-  assert.instanceOf(transport, Rsyslog);
-  assert.isFunction(transport.log);
-}
-
 vows.describe('winston-rsyslog').addBatch({
-  "An instance of the Rsyslog Transport": {
-    "should have the proper methods defined": function () {
-      assertRsyslog(tokenTransport);
-    },
-    "the log() method": helpers.testSyslogLevels(tokenTransport, "should log messages to rsyslog", function (ign, err, logged) {
-      assert.isNull(err);
-      assert.isTrue(logged);
-    })
-  }
+    'An instance of the Rsyslog Transport': {
+        'should have the proper methods defined': function() {
+            assertRsyslog(tokenTransport);
+        },
+        'the log() method': helpers.testSyslogLevels(tokenTransport, 'should log messages to rsyslog', function(ign, err, logged) {
+            assert.isNull(err);
+            assert.isTrue(logged);
+        })
+    }
 }).export(module);
