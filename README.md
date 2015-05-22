@@ -1,4 +1,4 @@
-# winston-rsyslog
+# winston-rsyslog2
 
 An [Rsyslog][0] transport for [winston][1].
 
@@ -78,23 +78,12 @@ $ModLoad imtcp
 $InputTCPServerRun 10514
 ```
 
-## Motivation
-Just for fun, while learning NodeJS.
-This (simple) project is based on [winston-loggly][2] (thanks @indexzero for the inspiration). 
-
 ## Installation
 
 ### Installing npm (node package manager)
 
 ``` bash
-  $ curl http://npmjs.org/install.sh | sh
-```
-
-### Installing winston-rsyslog
-
-``` bash
-  $ npm install winston
-  $ npm install winston-rsyslog
+npm install winston-rsyslog2
 ```
 
 ## Run Tests
@@ -106,10 +95,10 @@ If no test/config.json file is found, defaults will be used.
 Then you can run tests with [npm][4]:
 
 ``` bash
-  $ npm test
+npm test
 ```
 
-#### Author: [Fabio Grande] (http://about.me/fgrande)
+#### Author: [Fabio Grande](http://about.me/fgrande)
 #### License: MIT
 
 [0]: http://en.wikipedia.org/wiki/Rsyslog
