@@ -1,7 +1,7 @@
 {
     "name": "winston-rsyslog2",
-    "version": "0.0.2",
-    "description": "An rsyslog transport for winston",
+    "version": "0.0.3",
+    "description": "Rsyslog transport for winston",
     "keywords": [
         "logging",
         "sysadmin",
@@ -32,7 +32,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "http://github.com/imsky/winston-rsyslog2.git"
+        "url": "git@github.com:imsky/winston-rsyslog2.git"
     },
     "dependencies": {
         "winston": ">=0.7.2"
