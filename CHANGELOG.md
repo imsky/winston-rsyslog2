@@ -6,7 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Improved README and Changelog formatting.
+- Improved README and Changelog formatting. (Mark Stosberg)
+
+### Fixed
+
+- Repaired testing function broken in 0.0.4. (Mark Stosberg)
 
 ## [0.0.4] - 2015-05-22
 
