@@ -80,8 +80,6 @@ $InputTCPServerRun 10514
 
 ## Installation
 
-### Installing npm (node package manager)
-
 ``` bash
 npm install winston-rsyslog2
 ```

@@ -24,6 +24,11 @@ try {
   tokenTransport = new Rsyslog();
 }
 
+function assertRsyslog(transport) {
+  assert.instanceOf(transport, Rsyslog);
+  assert.isFunction(transport.log);
+}
+
 vows.describe('winston-rsyslog').addBatch({
     'An instance of the Rsyslog Transport': {
         'should have the proper methods defined': function() {
