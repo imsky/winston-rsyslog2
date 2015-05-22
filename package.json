@@ -1,6 +1,6 @@
 {
     "name": "winston-rsyslog2",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Rsyslog transport for winston",
     "keywords": [
         "logging",
