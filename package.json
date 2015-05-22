@@ -1,12 +1,21 @@
 {
   "name": "winston-rsyslog2",
   "version": "0.0.2",
-  "description": "An rSysLog transport for winston",
+  "description": "An rsyslog transport for winston",
   "author": "Fabio Grande <grnfba@gmail.com>",
+  "license": "MIT",
   "contributors": [
     {
       "name": "Fabio Grande",
       "email": "grnfba@gmail.com"
+    },
+    {
+      "name": "Ivan Malopinsky",
+      "email": "hello@imsky.co"
+    },
+    {
+      "name" : "Mark Stosberg",
+      "email": "mark@rideamigos.com"
     },
     {
       "name": "Derek Brooks",
@@ -15,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/fgrande/winston-rsyslog.git"
+    "url": "http://github.com/imsky/winston-rsyslog.git"
   },
   "keywords": ["logging", "sysadmin", "tools"],
   "dependencies": {
