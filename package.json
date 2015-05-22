@@ -1,42 +1,50 @@
 {
-  "name": "winston-rsyslog2",
-  "version": "0.0.2",
-  "description": "An rsyslog transport for winston",
-  "author": "Fabio Grande <grnfba@gmail.com>",
-  "license": "MIT",
-  "contributors": [
-    {
-      "name": "Fabio Grande",
-      "email": "grnfba@gmail.com"
+    "name": "winston-rsyslog2",
+    "version": "0.0.2",
+    "description": "An rsyslog transport for winston",
+    "keywords": [
+        "logging",
+        "sysadmin",
+        "tools",
+        "winston",
+        "syslog",
+        "rsyslog"
+    ],
+    "author": "Fabio Grande <grnfba@gmail.com>",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Fabio Grande",
+            "email": "grnfba@gmail.com"
+        },
+        {
+            "name": "Ivan Malopinsky",
+            "email": "hello@imsky.co"
+        },
+        {
+            "name": "Mark Stosberg",
+            "email": "mark@rideamigos.com"
+        },
+        {
+            "name": "Derek Brooks",
+            "email": "derek@broox.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/imsky/winston-rsyslog2.git"
     },
-    {
-      "name": "Ivan Malopinsky",
-      "email": "hello@imsky.co"
+    "dependencies": {
+        "winston": ">=0.7.2"
     },
-    {
-      "name" : "Mark Stosberg",
-      "email": "mark@rideamigos.com"
+    "devDependencies": {
+        "vows": "0.7.x"
     },
-    {
-      "name": "Derek Brooks",
-      "email": "derek@broox.com"
+    "main": "./lib/winston-rsyslog",
+    "scripts": {
+        "test": "vows --spec"
+    },
+    "engines": {
+        "node": ">= 0.4.0"
     }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/imsky/winston-rsyslog.git"
-  },
-  "keywords": ["logging", "sysadmin", "tools"],
-  "dependencies": {
-  },
-  "peerDependencies": {
-    "winston": ">=0.7.2"
-  },
-  "devDependencies": {
-    "winston": ">=0.7.2",
-    "vows": "0.7.x"
-  },
-  "main": "./lib/winston-rsyslog",
-  "scripts": { "test": "vows --spec" },
-  "engines": { "node": ">= 0.4.0" }
 }
