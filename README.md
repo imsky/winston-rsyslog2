@@ -1,6 +1,6 @@
 # winston-rsyslog2
 
-An [Rsyslog][0] transport for [winston][1].
+A [Rsyslog][0] transport for [winston][1].
 
 ## Usage
 ``` js
