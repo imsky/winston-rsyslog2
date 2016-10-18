@@ -23,7 +23,7 @@ The rsyslog transport takes the following options:
 * __host:__ Host where rsyslog runs (default : localhost)
 * __port:__ rsyslog Port (default : 514)
 * __facility:__ Facility index (default is 0, valid values are from 0 to 23)
-* __protocol:__ TCP or UDP (values can be "U" or "T", default is "U")
+* __protocol:__ TCP or UDP (values can be "T" for TCP, "U" for UDP and detect IP version from host option, "U4" for UDP over IPv4, "U6" for UDP over IPv6, default is "U")
 * __hostname:__ The hostname the application is running at (default is the current hostname)
 * __tag:__ A tag to name the application for easy log filtering (default is 'winston')
 * __timeout:__ Socket timeout for TCP (default is 2000 ms)

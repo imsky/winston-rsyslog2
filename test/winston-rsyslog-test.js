@@ -38,5 +38,28 @@ vows.describe('winston-rsyslog').addBatch({
             assert.isNull(err);
             assert.isTrue(logged);
         })
+    },
+    'An instance with default options': {
+        'should have "U" protocol, downgraded to "U4" because host is "localhost"': function() {
+            assert((new Rsyslog()).host, "localhost");
+            assert((new Rsyslog()).protocol, "U4");
+        },
+    },
+    'An instance with U protocol': {
+      'and IPv4 host should have "U4" protocol': function() {
+        assert.equal(new Rsyslog({host: '127.0.0.1'}).protocol, 'U4');
+      },
+      'and IPv6 host should have "U6" protocol': function() {
+        assert.equal(new Rsyslog({host: '::1'}).protocol, 'U6');
+      },
+      'and domain in host option should have "U4" protocol': function() {
+        assert.equal(new Rsyslog({host: 'example.com'}).protocol, 'U4');
+      },
+    },
+    'An instance with "U6" protocol and domain in host option should have "U6" protocol': function() {
+      assert.equal(new Rsyslog({host: 'example.com', protocol: 'U6'}).protocol, 'U6');
+    },
+    'An instance with "U5" protocol should throws Error': function() {
+      assert.throws(function() {return new Rsyslog({protocol: 'U5'})}, /Undefined Protocol/);
     }
 }).export(module);
