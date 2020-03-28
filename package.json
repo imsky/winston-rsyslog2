@@ -35,7 +35,8 @@
         "url": "git@github.com:imsky/winston-rsyslog2.git"
     },
     "dependencies": {
-        "winston": ">=0.7.2"
+        "winston": "3.x",
+        "winston-transport": "4.x"
     },
     "devDependencies": {
         "vows": "0.7.x"
@@ -45,6 +46,6 @@
         "test": "vows --spec"
     },
     "engines": {
-        "node": ">= 0.4.0"
+        "node": ">= 8.0.0"
     }
 }
