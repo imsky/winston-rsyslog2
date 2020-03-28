@@ -5,13 +5,11 @@
  * MIT LICENSE
  *
  */
+var assert = require('assert');
 
-var path = require('path'),
-  vows = require('vows'),
-  assert = require('assert'),
-  winston = require('winston'),
-  helpers = require('winston/test/helpers'),
-  Rsyslog = require('../lib/winston-rsyslog').Rsyslog;
+var vows = require('vows');
+var winston = require('winston');
+var Rsyslog = require('../lib/winston-rsyslog').Rsyslog;
 
 var tokenTransport, config;
 
@@ -29,12 +27,60 @@ function assertRsyslog(transport) {
   assert.isFunction(transport.log);
 }
 
+// imported from https://github.com/winstonjs/winston/blob/fffe13d329782c7a4c878acd0686d810d20357dc/test/helpers.js#L138
+function testLevels(levels, transport, assertMsg, assertFn) {
+  var tests = {};
+
+  Object.keys(levels).forEach(function (level) {
+    var test = {
+      topic: function () {
+        transport.log(level, 'test message', {}, this.callback.bind(this, null));
+      }
+    };
+
+    test[assertMsg] = assertFn;
+    tests['with the ' + level + ' level'] = test;
+  });
+
+  var metadatatest = {
+    topic: function () {
+      transport.log('info', 'test message', { metadata: true }, this.callback.bind(this, null));
+    }
+  };
+
+  metadatatest[assertMsg] = assertFn;
+  tests['when passed metadata'] = metadatatest;
+
+  var primmetadatatest = {
+    topic: function () {
+      transport.log('info', 'test message', 'metadata', this.callback.bind(this, null));
+    }
+  };
+
+  primmetadatatest[assertMsg] = assertFn;
+  tests['when passed primitive metadata'] = primmetadatatest;
+
+  var circmetadata = { };
+  circmetadata['metadata'] = circmetadata;
+
+  var circmetadatatest = {
+    topic: function () {
+      transport.log('info', 'test message', circmetadata, this.callback.bind(this, null));
+    }
+  };
+
+  circmetadatatest[assertMsg] = assertFn;
+  tests['when passed circular metadata'] = circmetadatatest;
+
+  return tests;
+};
+
 vows.describe('winston-rsyslog').addBatch({
     'An instance of the Rsyslog Transport': {
         'should have the proper methods defined': function() {
             assertRsyslog(tokenTransport);
         },
-        'the log() method': helpers.testSyslogLevels(tokenTransport, 'should log messages to rsyslog', function(ign, err, logged) {
+    'the log() method': testLevels(winston.config.syslog.levels, tokenTransport, 'should log messages to rsyslog', function (ign, err, logged) {
             assert.isNull(err);
             assert.isTrue(logged);
         })
